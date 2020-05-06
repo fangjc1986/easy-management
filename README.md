@@ -1,7 +1,18 @@
 ## Easy Management (EZM) 后台管理系统
+
  Easy Management (EZM) 后台管理系统是一整套全栈前后分离的 **免费开源** 中后台框架，可快速实现后台系统的用户权限、CRUD表格操作，帮助开发人员快速搭建基础后台功能。
+
 ### 预览
-   DEMO演示地址：[http://ezm.demo.fangjc1986.com](http://ezm.demo.fangjc1986.com)
+
+   DEMO演示地址：[http://ezm.demo.fangjc1986.com:8078](http://ezm.demo.fangjc1986.com:8078)
+
+   github：[https://github.com/fangjc1986/easy-management.git](https://github.com/fangjc1986/easy-management.git)
+
+   gitee：[https://gitee.com/ericfang/easy-management.git](https://gitee.com/ericfang/easy-management.git)
+
+   邮件交流：[fangjc1986@qq.com](mailTo:fangjc1986@qq.com)
+
+
 ### 前端集成功能：
    * CRUD 界面可根据数据库表自动生成；
    * 独立部署，可根据自身需求独立使用；

@@ -1,0 +1,165 @@
+@import "icon-font/iconfont.css";
+a {
+  text-decoration: none;
+}
+* {
+  outline: none;
+}
+.w100p {
+  width: 100%;
+}
+.h100p {
+  height: 100%;
+}
+.wh100p {
+  width: 100%;
+  height: 100%;
+}
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.flex-box {
+  display: flex;
+}
+.flex-box.flex-column {
+  flex-direction: column;
+}
+.flex-box.flex-center {
+  align-content: center;
+  align-items: center;
+}
+.flex-box.flex-center-j {
+  justify-content: center;
+  justify-items: center;
+}
+.flex-box.flex-center-all {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.flex-box > .flex-grow {
+  flex-grow: 1;
+}
+.flex-box > .flex-shk-off {
+  flex-shrink: 0;
+}
+.flex-box.same-all > * {
+  width: 0;
+  flex-grow: 1;
+}
+.cur-p {
+  cursor: pointer;
+}
+.trans {
+  transition: all 0.4s ease;
+}
+.overflow-h {
+  overflow: hidden;
+}
+.text-center {
+  text-align: center;
+}
+.box-shadow {
+  box-shadow: 0 5px 15px rgba(205, 205, 214, 0.5);
+}
+.pa-md {
+  padding: 20px;
+}
+.pl-md {
+  padding-left: 20px;
+}
+.pr-md {
+  padding-right: 20px;
+}
+.plr-md {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.pt-md {
+  padding-top: 20px;
+}
+.pb-md {
+  padding-bottom: 20px;
+}
+.ptb-md {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.ma-md {
+  margin: 20px;
+}
+.ml-md {
+  margin-left: 20px;
+}
+.mr-md {
+  margin-right: 20px;
+}
+.mlr-md {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.mt-md {
+  margin-top: 20px;
+}
+.mb-md {
+  margin-bottom: 20px;
+}
+.mtb-md {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.pa-sm {
+  padding: 10px;
+}
+.pl-sm {
+  padding-left: 10px;
+}
+.pr-sm {
+  padding-right: 10px;
+}
+.plr-sm {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.pt-sm {
+  padding-top: 10px;
+}
+.pb-sm {
+  padding-bottom: 10px;
+}
+.ptb-sm {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.ma-sm {
+  margin: 10px;
+}
+.ml-sm {
+  margin-left: 10px;
+}
+.mr-sm {
+  margin-right: 10px;
+}
+.mlr-sm {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.mt-sm {
+  margin-top: 10px;
+}
+.mb-sm {
+  margin-bottom: 10px;
+}
+.mtb-sm {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=common.css.map */

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fangjc1986.ezmpro.sys.mapper.UserMapper">
+    <select id="selectWhere" resultType="com.fangjc1986.ezmpro.sys.model.User">
+
+        select id,
+               user_name,
+               real_name,
+               nick_name,
+               age,
+               gender,
+               type,
+               id_card,
+               phone,
+               mobile,
+               address,
+               birthday,
+               create_user,
+               update_user,
+               create_time,
+               update_time,
+               remark,
+               tenant_id,
+               activated
+        from sys_user ${ew.customSqlSegment}
+    </select>
+
+    <delete id="removeByUserIds">
+        delete
+        from sys_user
+        where root = 0
+          and id in (${userIds})
+    </delete>
+
+</mapper>

@@ -1,0 +1,88 @@
+package  ${package.Controller};
+
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import ${package.ServiceImpl}.${table.serviceImplName};
+import ${package.Entity}.${entity};
+import com.fangjc1986.support.controller.BaseController;
+import com.fangjc1986.support.entity.IdsForm;
+import com.fangjc1986.support.entity.R;
+import com.fangjc1986.support.util.ConditionUtil;
+import com.fangjc1986.support.util.ValidateUtil;
+import com.fangjc1986.support.util.EPage;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.util.Map;
+import java.util.List;
+
+
+/**
+ * @author ${author}
+ * @since ${date}
+ */
+
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@AllArgsConstructor
+@Api(description = "${table.controllerName}")
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+
+    private ${table.serviceImplName} service;
+
+    @GetMapping("/list")
+    @ApiOperation(value = "查询列表")
+    R<IPage<${entity}>> list(@RequestParam Map<String, Object> filter, EPage<${entity}> page) {
+        return R.data(
+            service.page(
+                page,
+                ConditionUtil.getQW(filter, ${entity}.class)
+            )
+        );
+    }
+
+    @GetMapping("/get")
+    @ApiOperation(value = "id 查询")
+    R<${entity}> get(Long id) {
+        return R.data(
+            service.getById(id)
+        );
+    }
+
+    @PostMapping("/save")
+    @ApiOperation(value = "保存")
+    R<${entity}> save(@RequestBody @Validated ${entity} form) {
+        return saveOrUpdate(service, form);
+    }
+
+    @PostMapping("/updateList")
+    @ApiOperation(value = "批量更新")
+    R<String> updateList(@RequestBody @Validated List<${entity}> list) {
+        ValidateUtil.validate(list);
+        return R.status(
+                service.updateBatchById(list)
+            );
+    }
+
+    @PostMapping("/remove")
+    @ApiOperation(value = "ids 批量删除")
+    R<String> remove(@RequestBody @Validated IdsForm idsForm) {
+        return deleteCount(
+            service.getBaseMapper().deleteBatchIds(idsForm.getIds())
+        );
+    }
+
+}
+

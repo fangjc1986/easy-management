@@ -1,0 +1,40 @@
+import request from '@/utils/request.util';
+
+export const @{nameCamel}GetList = (params) => {
+    return request({
+        url: '/@{apiPrefix}/list',
+        method: 'get',
+        params,
+    })
+};
+
+export const @{nameCamel}Get = (params) => {
+    return request({
+        url: '/@{apiPrefix}/get',
+        method: 'get',
+        params,
+    })
+};
+
+export const @{nameCamel}Save = (data) => {
+    return request({
+        url: '/@{apiPrefix}/save',
+        method: 'post',
+        data,
+    })
+};
+export const @{nameCamel}UpdateList = (data) => {
+    return request({
+        url: '/@{apiPrefix}/updateList',
+        method: 'post',
+        data,
+    })
+};
+
+export const @{nameCamel}Remove = (data) => {
+    return request({
+        url: '/@{apiPrefix}/remove',
+        method: 'post',
+        data,
+    })
+};

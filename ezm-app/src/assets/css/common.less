@@ -1,0 +1,200 @@
+@import "./icon-font/iconfont.css";
+
+a {
+    text-decoration: none;
+}
+
+* {
+    outline: none;
+}
+
+.pos-r {
+    position: relative;
+}
+
+.pos-a {
+    position: absolute;
+}
+
+.w100p {
+    width: 100%;
+}
+
+.h100p {
+    height: 100%;
+}
+
+.wh100p {
+    .w100p;
+    .h100p;
+}
+
+.one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.flex-box {
+    display: flex;
+
+    &.flex-column {
+        flex-direction: column;
+        > .flex-grow {
+        }
+    }
+
+    &.flex-center {
+        align-content: center;
+        align-items: center;
+    }
+
+    &.flex-center-j {
+        justify-content: center;
+        justify-items: center;
+    }
+
+    &.flex-center-all {
+        .flex-center;
+        .flex-center-j;
+    }
+
+    &.same-all {
+        > * {
+            width: 0;
+            flex-grow: 1;
+        }
+    }
+
+
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.flex-shk-off {
+    flex-shrink: 0;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.cur-p {
+    cursor: pointer;
+}
+
+.trans {
+    transition: all .4s ease;
+}
+
+.overflow-h {
+    overflow: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.box-shadow {
+    box-shadow: 0 1px 5px rgba(200, 200, 210, 0.5);
+}
+
+.box-card {
+    background: #ffffff;
+}
+
+.border-box{
+    box-sizing: border-box;
+}
+
+.box-card-shadow {
+    .box-shadow !important;
+    .box-card !important;
+}
+
+.font-b {
+    font-weight: bold;
+}
+
+.paddingMargin(@cls, @size) {
+    .pa-@{cls} {
+        padding: @size;
+    }
+    .pl-@{cls} {
+        padding-left: @size;
+    }
+    .pr-@{cls} {
+        padding-right: @size;
+    }
+    .plr-@{cls} {
+        padding-right: @size;
+        padding-left: @size;
+    }
+    .pt-@{cls} {
+        padding-top: @size;
+    }
+    .pb-@{cls} {
+        padding-bottom: @size;
+    }
+    .ptb-@{cls} {
+        padding-bottom: @size;
+        padding-top: @size;
+    }
+    .ma-@{cls} {
+        margin: @size;
+    }
+    .ml-@{cls} {
+        margin-left: @size;
+    }
+    .mr-@{cls} {
+        margin-right: @size;
+    }
+    .mlr-@{cls} {
+        margin-right: @size;
+        margin-left: @size;
+    }
+    .mt-@{cls} {
+        margin-top: @size;
+    }
+    .mb-@{cls} {
+        margin-bottom: @size;
+    }
+    .mtb-@{cls} {
+        margin-bottom: @size;
+        margin-top: @size;
+    }
+}
+
+.paddingMargin(lg, 30px);
+.paddingMargin(md, 20px);
+.paddingMargin(sm, 10px);
+.paddingMargin(xs, 5px);
+.paddingMargin(xxs, 3px);
+.paddingMargin(1px, 1px);
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.font-xs {
+    font-size: 12px;
+}
+
+.font-sm {
+    font-size: 13px;
+}

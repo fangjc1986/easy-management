@@ -1,0 +1,102 @@
+server:
+    port: 8085
+
+spring:
+    application:
+        name: ezmpro
+    jackson:
+        date-format: "yyyy-MM-dd HH:mm:ss"
+        time-zone: "GMT+8"
+        joda-date-time-format: "yyyy-MM-dd HH:mm:ss"
+        default-property-inclusion: always
+    datasource:
+        dynamic:
+            druid:
+                initial-size: 0
+                max-active: 8
+                min-idle: 2
+                max-wait: -1
+                min-evictable-idle-time-millis: 30000
+                max-evictable-idle-time-millis: 30000
+                time-between-eviction-runs-millis: 0
+                validation-query: select 1
+                validation-query-timeout: -1
+                test-on-borrow: false
+                test-on-return: false
+                test-while-idle: true
+                pool-prepared-statements: true
+                filters: stat,wall
+                share-prepared-statements: true
+            primary: master
+            datasource:
+                master:
+                    name: ezmpro
+                    url: jdbc:mysql://localhost:3306/ezmpro?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+                    username: 
+                    password: 
+                    type: com.alibaba.druid.pool.DruidDataSource
+                    driver-class-name: com.mysql.jdbc.Driver
+                slave_1:
+                    name: ezmpro
+                    url: jdbc:mysql://localhost:3306/ezmpro?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+                    username: 
+                    password: 
+                    type: com.alibaba.druid.pool.DruidDataSource
+                    driver-class-name: com.mysql.jdbc.Driver
+    data:
+        mongodb:
+            uri: mongodb://account:password@localhost:27017/ezmpro
+    session:
+        store-type: redis
+        timeout: 7200
+    cache:
+        type: redis
+    redis:
+        database: 0
+        host: localhost
+        port: 6379
+        password: password
+        expire-time: 99999999
+        lettuce:
+            pool:
+                max-active: 8
+                max-wait: -1
+                max-idle: 8
+                min-idle: 0
+            shutdown-timeout: 100
+
+
+mybatis-plus:
+    # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+    # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+    mapper-locations: classpath:mapper/*/*.xml
+    #实体扫描，多个package用逗号或者分号分隔
+    typeAliasesPackage: com.fangjc1986.ezmpro.*.model
+    global-config:
+        #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+        id-type: 0
+        #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+        field-strategy: 1
+        #驼峰下划线转换
+        #db-column-underline: true
+        #刷新mapper 调试神器
+        #refresh-mapper: true
+        #数据库大写下划线转换
+        #capital-mode: true
+        # Sequence序列接口实现类配置
+        #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+        #逻辑删除配置（下面3个配置）
+        #logic-delete-value: 1
+        #logic-not-delete-value: 0
+        #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+        #自定义填充策略接口实现
+        #meta-object-handler: com.baomidou.springboot.MyMetaObjectHandler
+    configuration:
+        map-underscore-to-camel-case: true
+        cache-enabled: false
+        #配置JdbcTypeForNull
+        jdbc-type-for-null: 'null'
+        call-setters-on-nulls: true
+        #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

@@ -1,0 +1,517 @@
+@import (reference) "common";
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 14px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    outline: none !important;
+}
+
+
+// element 样式重置
+
+// tabs 窗口标签样式重置
+.layout-middle-tab-bar {
+    @height: 30px !important;
+    height: @height + 1;
+
+    .el-tabs__header {
+        padding-bottom: 0;
+        padding-left: 10px;
+        margin-bottom: 0;
+        height: @height;
+        padding-right: 10px;;
+    }
+
+    .el-tabs__nav-prev, .el-tabs__nav-next {
+        height: @height;
+        line-height: @height;
+    }
+
+    .el-tabs__nav {
+        height: @height + 1;
+        border-radius: 0 !important;
+        top: 1px;
+        background-color: #fff;
+
+        .el-tabs__item {
+            height: @height - 1;
+            padding: 0 10px !important;
+            line-height: @height - 1;
+            border-radius: 0 !important;
+            border-bottom: 1px solid #E4E7ED !important;
+
+            &.is-active {
+                border-bottom: 1px solid #ffffff !important;
+                position: relative;
+            }
+        }
+    }
+}
+
+// 左侧菜单样式
+@menuLeftBgColor: #fff;
+@menuLeftDefaultColor: #254769;
+@menuActiveBgc: #177BBB;
+.layout-left-menu.el-menu, .el-menu--popup.el-menu {
+    background-color: transparent;
+    border: none;
+    width: 100% !important;
+
+    &.el-menu--collapse .el-submenu.is-active > .el-submenu__title {
+        color: @menuLeftBgColor !important;
+        background-color: transparent !important;
+
+        i.iconfont {
+            color: @menuLeftBgColor !important;
+        }
+
+    }
+    .el-menu--inline{
+        background-color: transparent;
+    }
+    &.el-menu--collapse {
+        .el-submenu__icon-arrow {
+            display: none;
+        }
+
+        .el-menu-item, .el-submenu__title {
+            margin: 3px 0;
+            border-radius: 0;
+        }
+    }
+
+    &.el-menu--collapse > div > .el-submenu > .el-submenu__title > span {
+        display: none;
+    }
+
+    .el-menu-item, .el-submenu__title {
+        color: @menuLeftBgColor;
+        background-color: transparent;
+        @itemHeight: 50px;
+        height: @itemHeight;
+        line-height: @itemHeight;
+        margin: 3px 10px;
+        border-radius: 5px;
+
+        .el-submenu__icon-arrow {
+            color: @menuLeftBgColor;
+        }
+
+        &.is-active {
+            color: @menuLeftBgColor !important;
+            background-color: @menuActiveBgc !important;
+
+            i.iconfont {
+                color: @menuLeftBgColor !important;
+            }
+
+            .el-submenu__icon-arrow {
+                color: @menuLeftBgColor;
+            }
+        }
+
+        &:hover {
+            color: @menuLeftBgColor;
+            background-color: fade(@menuActiveBgc, 70%);
+
+            .el-submenu__icon-arrow {
+                color: @menuLeftBgColor;
+            }
+
+            i.iconfont {
+                color: @menuLeftBgColor !important;
+            }
+        }
+
+        i.iconfont {
+            margin-right: 5px;
+            font-size: 1.2em;
+            color: @menuLeftBgColor;
+        }
+    }
+}
+
+// happy-scroll 重置样式
+.happy-scroll {
+
+    width: 100% !important;
+
+    .happy-scroll-container {
+        width: 100% !important;
+        -ms-scroll-chaining: chained;
+        -ms-overflow-style: none;
+        -ms-content-zooming: zoom;
+        -ms-scroll-rails: none;
+        -ms-content-zoom-limit-min: 100%;
+        -ms-content-zoom-limit-max: 500%;
+        -ms-scroll-snap-type: proximity;
+        -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+        -ms-overflow-style: none;
+
+        .happy-scroll-content {
+            display: block !important;
+            padding-bottom: 50px;
+        }
+    }
+}
+
+
+// el-button 按钮重置
+.el-button:not(.is-circle) {
+    border-radius: 0 !important;
+
+    i.iconfont {
+        padding-right: 5px;
+    }
+}
+
+// vxe-table 单选
+.vxe-table.size--mini .vxe-radio--icon:after {
+    //content: "";
+    //position: absolute;
+    //height: .30em !important;
+    //width: .30em !important;;
+    //top: .35em !important;
+    //left: .35em !important;
+    //border-radius: 0 !important;
+    //background-color: #fff;
+}
+
+// vxe-table 每行的编辑图标
+.table-row-operation {
+    > i {
+        cursor: pointer;
+
+        &:hover {
+            opacity: .7;
+        }
+
+        &:not(:first-of-type) {
+            .ml-xs;
+        }
+    }
+}
+
+// 输入库框
+.el-input {
+    padding-top: 0 !important;
+    border-radius: 0 !important;
+
+    input {
+        border-radius: 0 !important;
+    }
+
+    .el-input-group__append, .el-input-group__prepend {
+        border-radius: 0;
+    }
+}
+
+.el-textarea {
+    border-radius: 0;
+
+    > textarea {
+        border-radius: 0;
+        padding: 3px 5px;
+    }
+}
+
+.el-input.el-input--mini:not(.el-date-editor):not(.el-input--prefix):not(.el-input--suffix) {
+    > input {
+        padding: 0 5px;
+    }
+}
+
+.el-input.el-input--mini:not(.el-input--prefix) {
+    > input {
+        padding-left: 5px;
+    }
+}
+
+.el-input.el-input--mini:not(.el-input--suffix) {
+    > input {
+        padding-right: 5px;
+    }
+}
+
+
+// 登录页重置
+.image-code.el-input .el-input-group__append {
+    padding: 0;
+    background: #ffffff;
+}
+
+// messagebox 窗口位置
+.el-message-box.ezm-confirm {
+    margin-top: 20vh !important;
+    vertical-align: top;
+    border-radius: 0;
+
+    .ezm-confirm-button:before {
+    }
+}
+
+// 过滤窗口
+.filter-container {
+    font-size: 12px;
+}
+
+// vxe-table
+.vxe-cell--sort {
+    top: -1px;
+}
+
+.vxe-filter--btn {
+    top: -1px;
+}
+
+.vxe-input, .vxe-input--inner, .vxe-pager--goto {
+    border-radius: 0 !important;
+}
+
+.vxe-cell .vxe-edit-icon {
+    top: -1px;
+}
+
+.vxe-cell, .vxe-cell.c--tooltip {
+    padding: 0 5px !important;
+}
+
+.vxe-loading {
+    background-color: rgba(255, 255, 255, .5);
+
+    .vxe-loading--spinner {
+        &:before {
+            font-size: 12px;
+            height: 20px;
+            width: 20px;
+        }
+
+        &:after {
+            height: 20px;
+            width: 20px;
+        }
+    }
+}
+
+// vxe-toolbar
+.vxe-tool-btn {
+    margin-left: 10px !important;
+    background-color: #fff !important;
+    border-color: #DCDFE6 !important;
+    padding: 7px 7px !important;
+}
+
+.flex-box.flex-column, .ezm-page-container {
+    > .ezm-table.flex-grow {
+        height: 0 !important;
+    }
+}
+
+// 过滤窗口
+.filter-field-container {
+    .flex-box;
+    flex-wrap: wrap;
+
+    > * {
+        flex-shrink: 0;
+    }
+}
+
+// 编辑表单
+.ezm-edit-form {
+    font-size: 12px;
+
+    .edit-form-col {
+        min-height: 62px;
+
+        .el-form-item {
+            margin-bottom: 13px;
+        }
+
+        .el-form-item__label {
+            font-size: 12px !important;
+            line-height: 1.5;
+            padding-bottom: 0;
+        }
+
+        .el-input {
+            padding-top: 1px !important;
+            margin: 0;
+        }
+    }
+}
+
+// 树状结构
+.el-cascader.el-cascader--mini {
+    input.el-input__inner {
+        height: 28px !important;
+    }
+}
+
+// el-tag 标签
+.el-tag {
+    border-radius: 0 !important;
+}
+
+// ezm window 中的按钮
+.ezm-window > .title-bar {
+    .button-left-container {
+        > .el-button-group {
+            margin-left: 1px;
+        }
+
+        > .el-button {
+            &:not(:first-of-type) {
+                margin-left: 1px;
+            }
+        }
+    }
+}
+
+// vxe-modal
+.vxe-modal--wrapper.type--modal {
+    .vxe-modal--box {
+        border-radius: 0 !important;
+
+        .vxe-modal--body {
+            padding: 0;
+
+            .vxe-modal--content {
+                .pa-sm;
+                overflow: auto;
+            }
+        }
+
+        .vxe-modal--header {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px !important;
+        }
+    }
+}
+
+// 细滚动条样式
+.scroll-y-thin {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(120, 120, 120, .6);
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+        height: 0;
+    }
+}
+
+// 细滚动条样式
+.scroll-xy-thin {
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(120, 120, 120, .6);
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+        height: 0;
+    }
+}
+
+// 页面排列
+.ezm-page-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+// 编辑对话框
+.ezm-edit-dialog {
+
+    > .vxe-modal--wrapper {
+        background-color: rgba(255, 255, 255, .3);
+
+        > .vxe-modal--box {
+            > .vxe-modal--header {
+                overflow: visible !important;
+                height: 0 !important;
+                background-color: #fff;
+                border: none;
+            }
+        }
+
+
+        &.is--visible {
+            > .vxe-modal--box {
+                transition: all ease .4s;
+            }
+        }
+
+        &.is--active:not(.is--visible) {
+            > .vxe-modal--box {
+                transform: translateY(-10px);
+                opacity: .0;
+            }
+        }
+    }
+
+    .vxe-modal--content {
+        padding: 1px !important;
+    }
+}
+
+// el Select
+.el-select-dropdown__item {
+    font-size: 12px !important;
+    height: 25px !important;
+    line-height: 25px !important;
+    padding: 0 10px !important;
+}
+
+// el 多选
+.el-select__input {
+    margin-left: 5px !important;
+}
+
+// 面包削
+.layout-top-breadcrumb {
+    .el-breadcrumb {
+        font-size: 12px;
+
+        .el-breadcrumb__separator {
+            margin: 0 3px;
+        }
+    }
+}
+
+// 查找页面
+.layout-top-search-page {
+    input {
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+}

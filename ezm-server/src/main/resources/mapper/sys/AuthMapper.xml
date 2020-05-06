@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fangjc1986.ezmpro.sys.mapper.AuthMapper">
+
+    <select id="getUserAuthorization" resultType="com.fangjc1986.ezmpro.sys.model.Auth">
+        select *
+        from sys_auth
+        where id in (
+            select auth_id
+            from sys_role_auth
+            where role_id in (
+                select role_id from sys_user_role where user_id = #{userId} and tenant_id = #{tenantId}
+            )
+        )
+          and path = #{path}
+    </select>
+    <select id="listByRoleId" resultType="com.fangjc1986.ezmpro.sys.model.Auth">
+        select *
+        from sys_auth
+        where id in (
+            select auth_id
+            from sys_role_auth
+            where role_id = #{roleId}
+        )
+    </select>
+    <select id="listByUserIdAndTenantId" resultType="com.fangjc1986.ezmpro.sys.model.Auth">
+        select *
+        from sys_auth
+        where id in (
+            select auth_id
+            from sys_role_auth
+            where role_id in (
+                select role_id from sys_user_role where user_id = #{userId} and tenant_id = #{tenantId}
+            )
+        )
+    </select>
+</mapper>

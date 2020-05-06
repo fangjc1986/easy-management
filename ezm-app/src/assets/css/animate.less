@@ -1,0 +1,29 @@
+.transitionAnimate(@name, @cls, @t : 0.5s ) {
+    .@{name}-enter-active, .@{name}-leave-active {
+        transition: @t;
+    }
+    .@{name}-enter, .@{name}-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        @cls();
+    }
+}
+.transitionAnimate(fade, {
+    opacity:0;
+});
+
+.transitionAnimate(fade-quick, {
+    opacity:0;
+}, .3s);
+
+.transitionAnimate(fade-top, {
+    opacity:0;
+    transform: translateY(-20px);
+}, .4s);
+
+.transitionAnimate(fade-right, {
+    opacity:0;
+    transform: translateX(20px);
+}, .4s);
+.transitionAnimate(fade-right-quick, {
+    opacity:0;
+    transform: translateX(20px);
+}, .2s);
